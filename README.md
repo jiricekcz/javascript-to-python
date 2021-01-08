@@ -8,3 +8,5 @@ Note: This only translates syntax features, not native functions
 - For loops
 - While loops 
 - If statements 
+## Usage example 
+**node ./src/translator/ ./myFile.js ./myFile.py**
