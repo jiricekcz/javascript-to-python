@@ -1,0 +1,26 @@
+{
+  "name": "javascript-to-python",
+  "version": "1.0.0",
+  "description": "A simple javascript to python translator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiricekcz/javascript-to-python.git"
+  },
+  "keywords": [
+    "javascript",
+    "python"
+  ],
+  "author": "jiricekcz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiricekcz/javascript-to-python/issues"
+  },
+  "homepage": "https://github.com/jiricekcz/javascript-to-python#readme",
+  "dependencies": {
+    "acorn": "^8.0.4"
+  }
+}
