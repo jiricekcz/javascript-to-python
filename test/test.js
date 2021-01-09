@@ -1,7 +1,33 @@
 var a = 0;
 const b = 11*4;
 let c = "asdadas";
-const fortinte = 4;
+var fortinte = 4;
 if (fortinte > 3) {
-    if (a > b) i++;
+    if (fortinte == 1) c = "a";
+    while (c == "a") {
+        for (var i = 0; i < 10**2; i++) {
+            console.log("FFFF")
+        }
+    }
+} else if (g == "h") {
+    var o = "";
+} else {
+    var j = "";
+}
+
+function f(a, b, c) { 
+    return "aaaa";
+}
+class A {
+    constructor(a, b, c) {
+
+    }
+    hi(aa) {
+
+    }
+}
+class B extends A {
+    constructor(b, c) {
+        super(b, c);
+    }
 }

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const parse = require('./parser.js');
 const Script = require('./script.js');
+const translate = require('./translate.js');
 
 let inputFile, outputFile;
 // Input handle
@@ -18,10 +19,8 @@ var output = "";
 
 
 // ----------------------- 
-var nodes = parse(file);
 
-var script = new Script(nodes);
-output = script.toString();
+output = translate(file);
 //------------------------
 
 
