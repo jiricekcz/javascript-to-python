@@ -16,7 +16,7 @@ module.exports = function translate(javascriptString) {
 function pythonify(node, depth = 0, ...moreParams) {
     if (!translators[node.type]) {
         console.log(node);
-        throw new Error("There is not defined pythonification function for this node, type: " + node.type);
+        throw new Error("There is no defined pythonification function for this node, type: " + node.type);
     }
 
     return translators[node.type](node, depth, ...moreParams);
@@ -98,7 +98,7 @@ var translators = {
         return `${pythonify(node.callee, depth)}(${node.arguments.map(v => pythonify(v, depth)).join(",")})`;
     },
     MemberExpression: (node, depth) => {
-        var member = `${pythonify(node.object, depth)}.${pythonify(node.property, depth)}`;
+        var member = `${pythonify(node.object, depth)}${Number.isNaN(Number(pythonify(node.property, depth))) ? `["${pythonify(node.property, depth)}"]` : `[${pythonify(node.property, depth)}]`}`;
         if (dictionary.functionRenames.has(member)) {
             member = dictionary.functionRenames.get(member);
             if (member instanceof Array) {
@@ -147,6 +147,9 @@ var translators = {
         var id = generateRandomIdentifier();
         defineGlobalFunction(id, node.params, node.body);
         return id;
+    },
+    ArrayExpression: (node, depth) => {
+        return `[${node.elements.map(v => pythonify(v, 0)).join(",")}]`;
     }
 }
 

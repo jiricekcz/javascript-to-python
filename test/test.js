@@ -2,6 +2,7 @@ var a = 0;
 const b = 11*4;
 let c = "asdadas";
 var fortinte = 4;
+g = 'll';
 if (fortinte > 3) {
     if (fortinte == 1) c = "a";
     while (c == "a") {
@@ -42,3 +43,5 @@ Math.E;
 Math.pow();
 Math.log();
 const kk = () => "a"
+var gg = [a, ba, g];
+gg[1];

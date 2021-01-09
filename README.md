@@ -28,6 +28,7 @@ Note: This only translates syntax features, not all native functions will be ava
 - Super
 - ThisExpression
 - ArrowExpression
+- ArrayExpression
 ## Currently translated native JavaScript functions
 - *console.log()* to *print()*
 - *Math.round()* to *math.round()* with the import of *math*
