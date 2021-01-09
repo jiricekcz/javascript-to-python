@@ -2,6 +2,7 @@
 # Github: https://github.com/jiricekcz/javascript-to-python
 # Convertor author: https://github.com/jiricekcz
 import math
+def power(a, b): return a**b
 a=0
 b=11*4
 c="asdadas"
@@ -34,3 +35,5 @@ b.a
 math.floor()
 math.ceil()
 math.round()
+math.exp(1)
+power()

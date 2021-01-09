@@ -38,3 +38,6 @@ b.a;
 Math.floor();
 Math.ceil();
 Math.round();
+Math.E;
+Math.pow();
+Math.log();
