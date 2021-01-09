@@ -99,6 +99,7 @@ var translators = {
     },
     MemberExpression: (node, depth) => {
         var member = `${pythonify(node.object, depth)}${Number.isNaN(Number(pythonify(node.property, depth))) ? `["${pythonify(node.property, depth)}"]` : `[${pythonify(node.property, depth)}]`}`;
+        console.log(member, dictionary.functionRenames.keys());
         if (dictionary.functionRenames.has(member)) {
             member = dictionary.functionRenames.get(member);
             if (member instanceof Array) {
