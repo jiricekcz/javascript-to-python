@@ -127,7 +127,12 @@ var translators = {
         }
     },
     FunctionExpression: (node, depth, includeSelf = false) => {
-        return `(${includeSelf ? "self, " : ""}${node.params.map(p => pythonify(p, 0)).join(",")}):${pythonify(node.body, depth)}`;
+        if (node.body.type == "BlockStatement") {
+            return `(${includeSelf ? "self, " : ""}${node.params.map(p => pythonify(p, 0)).join(",")}):${pythonify(node.body, depth)}`;
+        } else {
+            return `(${includeSelf ? "self, " : ""}${node.params.map(p => pythonify(p, 0)).join(",")}): return ${pythonify(node.body, depth)}`;
+
+        }
     },
     Super: (node, depth) => {
         return `super()`;
