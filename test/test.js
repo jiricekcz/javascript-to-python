@@ -33,3 +33,8 @@ class B extends A {
         super(b, c);
     }
 }
+var ba = new B(1, 2);
+b.a;
+Math.floor();
+Math.ceil();
+Math.round();
