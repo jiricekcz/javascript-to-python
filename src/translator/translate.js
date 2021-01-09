@@ -122,6 +122,9 @@ var translators = {
     },
     Super: (node, depth) => {
         return `super()`;
+    },
+    ThisExpression: (node, depth) => {
+        return "self"
     }
 }
 

@@ -20,7 +20,9 @@ function f(a, b, c) {
 }
 class A {
     constructor(a, b, c) {
-
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
     hi(aa) {
 

@@ -17,7 +17,9 @@ def f(a,b,c):
     return "aaaa"
 class A:
     def __init__(self, a,b,c):
-        pass
+        self.a=a
+        self.b=b
+        self.c=c
     def hi(self, aa):
         pass
 class B(A):

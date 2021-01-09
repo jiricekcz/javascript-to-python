@@ -26,6 +26,7 @@ Note: This only translates syntax features, not all native functions will be ava
 - MethodDefinition
 - FunctionExpression
 - Super
+- ThisExpression
 ## Currently translated native javascript functions
 - *console.log()* to *print()*
 ## Usage example 
