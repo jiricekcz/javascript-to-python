@@ -41,3 +41,4 @@ Math.round();
 Math.E;
 Math.pow();
 Math.log();
+const kk = () => "a"

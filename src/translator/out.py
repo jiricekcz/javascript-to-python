@@ -3,6 +3,7 @@
 # Convertor author: https://github.com/jiricekcz
 import math
 def power(a, b): return a**b
+def hxvkmmhysfwjdyyxxswgrhywxtzpkdsy():"a"
 a=0
 b=11*4
 c="asdadas"
@@ -37,3 +38,5 @@ math.ceil()
 math.round()
 math.exp(1)
 power()
+math.log()
+kk=hxvkmmhysfwjdyyxxswgrhywxtzpkdsy
