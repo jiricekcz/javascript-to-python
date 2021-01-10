@@ -34,6 +34,9 @@ Note: This only translates syntax features, not all native functions will be ava
 - ObjectExpression
 - Property
 - ClassExpression
+- ThrowStatement
+- TryStatement
+- CatchClause
 ## Currently translated native JavaScript functions
 - *console.log()* to *print()*
 - *Math.round()* to *math.round()* with the import of *math*

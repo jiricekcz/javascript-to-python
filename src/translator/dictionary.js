@@ -9,6 +9,7 @@ module.exports.functionRenames.set("Math.pow", ["power", ["def power(a, b): retu
 module.exports.functionRenames.set("Math.log", ["math.log", ["import math"]]);
 module.exports.functionRenames.set("undefined", "None");
 module.exports.functionRenames.set("null", "None");
+module.exports.functionRenames.set("Error", "Exception");
 
 
 module.exports.identifierRenames = new Map();

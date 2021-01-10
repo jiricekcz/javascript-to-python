@@ -183,6 +183,16 @@ var translators = {
         var id = generateRandomIdentifier();
         defineGlobalClass(id, node.body, node.superClass);
         return id;
+    },
+    ThrowStatement: (node, depth) => {
+        return `raise ${pythonify(node.argument, depth)}`;
+    },
+    TryStatement: (node, depth) => {
+        var f = `try: ${pythonify(node.block, depth)}\n${getDepthSpacing(depth)}${pythonify(node.handler, depth)}\n${getDepthSpacing(depth)}finally:${pythonify(node.finalizer, depth)}`;
+        return f;
+    },
+    CatchClause: (node, depth) => {
+        return `except Exception as ${pythonify(node.param)}: ${pythonify(node.body, depth)}`
     }
 }
 
