@@ -33,10 +33,12 @@ var translators = {
         return `${pythonify(node.id, depth)}=${pythonify(node.init, depth)}`;
     },
     Identifier: (node) => {
-        usedIdentifiers.push(node.name);
+        if (dictionary.functionRenames.has(node.name)) node.name = dictionary.functionRenames.get(node.name);
+        if (!usedIdentifiers.includes(node.name)) usedIdentifiers.push(node.name);
         return node.name;
     },
     Literal: (node) => {
+        if (dictionary.functionRenames.has(node.raw)) node.raw = dictionary.functionRenames.get(node.raw);
         return node.raw;
     },
     BinaryExpression: (node, depth) => {
@@ -120,6 +122,7 @@ var translators = {
     },
     ClassBody: (node, depth) => {
         depth++;
+        if (node.body.length == 0) return `\n${getDepthSpacing(depth)}pass`
         return `\n${getDepthSpacing(depth)}${node.body.map(v => pythonify(v, depth)).join("\n" + getDepthSpacing(depth))}`;
     },
     MethodDefinition: (node, depth) => {
@@ -169,6 +172,17 @@ var translators = {
     },
     SpreadElement: (node, depth) => {
         return `*${pythonify(node.argument, depth)}`;
+    },
+    ObjectExpression: (node, depth) => {
+        return `{${node.properties.map(v => pythonify(v, depth)).join(",")}}`;
+    },
+    Property: (node, depth) => {
+        return `"${pythonify(node.key, depth)}":${pythonify(node.value, depth)}`
+    },
+    ClassExpression: (node, depth) => {
+        var id = generateRandomIdentifier();
+        defineGlobalClass(id, node.body, node.superClass);
+        return id;
     }
 }
 
@@ -197,6 +211,14 @@ function defineGlobalFunction(name, params, body) {
         body,
         params
     }, 0));
+}
+function defineGlobalClass(name, body, inherit) {
+    console.log("Defined global class: " + name);
+    if (inherit) {
+        globalImports.push(`class ${name}(${pythonify(inherit)}):` + pythonify(body));
+    } else {
+        globalImports.push(`class ${name}:` + translators.ClassBody(body, 0));
+    }
 }
 function generateRandomIdentifier(length = 32) {
     var rv = "";
