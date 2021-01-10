@@ -154,7 +154,7 @@ var translators = {
         return id;
     },
     ArrayExpression: (node, depth) => {
-        addGlobalImport("import math", fs.readFileSync("./array.py", "utf-8"))
+        addGlobalImport("import math", fs.readFileSync("./python/array.py", "utf-8"))
         return `Array((${node.elements.map(v => pythonify(v, 0)).join(",")}))`;
     }
 }

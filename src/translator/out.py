@@ -65,3 +65,7 @@ def clmlgtdokogdutiugtoglmlinxkzoezj(a,b): return a-b
 a=Array((1,2,5,4,8,7,9,6,21,8,4,6,4))
 a[0]
 print(a.sort(clmlgtdokogdutiugtoglmlinxkzoezj))
+
+def h(a):
+    return a
+print(h)

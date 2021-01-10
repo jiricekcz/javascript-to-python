@@ -51,5 +51,13 @@ Note: This only translates syntax features, not all native functions will be ava
   - *shift()*
   - *slice()*
   - *sort()* - uses the quicksort algorithm
+  - *splice()*
+  - *unshift()*
+  - *indexOf()*
+  - *lastIndexOf()*
+  - *every()*
+  - *some()*
+  - *forEach()*
+  - *reduce()*
 ## Usage example 
-**node ./src/translator/ ./myFile.js ./myFile.py**
+**node . ./myFile.js ./myFile.py**
