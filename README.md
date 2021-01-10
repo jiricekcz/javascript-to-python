@@ -37,16 +37,34 @@ Note: This only translates syntax features, not all native functions will be ava
 - ThrowStatement
 - TryStatement
 - CatchClause
-## Currently translated native JavaScript functions
-- *console.log()* to *print()*
-- *Math.round()* to *math.round()* with the import of *math*
-- *Math.ceil()* to *math.ceil()* with the import of *math*
-- *Math.floor()* to *math.floor()* with the import of *math*
-- *Math.E* to *math.exp(1)* with the import of *math*
-- *Math.exp()* to *math.exp()* with the import of *math*
-- *Math.log()* to *math.log()* with the import of *math*
-## Currently custom defined JavaScript native functions
+## Currently translated native JavaScript functions and constants
+- *console.log()*
+- *Math.round()*
+- *Math.ceil()*
+- *Math.floor()*
+- *Math.E*
+- *Math.exp()*
+- *Math.log()*
 - *Math.pow()*
+- *Math.LN10*
+- *Math.LN2*
+- *Math.LOG2E*
+- *Math.LOG10E*
+- *Math.PI*
+- *Math.SQRT1_2*
+- *Math.SQRT2*
+- *Math.abs()*
+- *Math.acos()*
+- *Math.asin()*
+- *Math.atan()*
+- *Math.atan2()*
+- *Math.cos()*
+- *Math.max()*
+- *Math.min()*
+- *Math.random()*
+- *Math.sin()*
+- *Math.sqrt()*
+- *Math.tan()*
 ## Currently translated JavaScript native classes and their methods
 - *Array*
   - *length*

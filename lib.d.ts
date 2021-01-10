@@ -6,6 +6,26 @@ declare interface Math {
     log(number: number): number;
     pow(number: number, exponent?: number): number;
     E: number;
+    LN10: number;
+    LN2: number;
+    LOG2E: number;
+    LOG10E: number;
+    PI: number;
+    SQRT1_2: number;
+    SQRT1_2: number;
+    abs(number: number): number;
+    acos(number: number): number;
+    asin(number: number): number;
+    atan(number: number): number;
+    atan2(x: number, y: number): number;
+    cos(number: number): number;
+    max(...numbers: Array<number>): number;
+    min(...numbers: Array<number>): number;
+    random(): number;
+    sin(number: number): number;
+    sqrt(number: number): number;
+    tan(number: number): number;
+
 }
 declare interface console {
     log(...messages: string[]): void;
