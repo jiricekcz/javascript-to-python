@@ -1,2 +1,7 @@
-var a = [1,2,5,4,5,52,6]
-console.log(a);
+var a = function (x) {
+    return "a";
+}
+a = function (x) {
+    return "b";
+}
+console.log(a());

@@ -29,6 +29,7 @@ var translators = {
         return node.declarations.map(d => pythonify(d, depth)).join(getDepthSpacing(depth));
     },
     VariableDeclarator: (node, depth = 0) => {
+        if (node.init.type == "FunctionExpression") return `${pythonify(node.id, depth)}=${pythonify(node.init, depth, false, true)}`;
         return `${pythonify(node.id, depth)}=${pythonify(node.init, depth)}`;
     },
     Identifier: (node) => {
@@ -75,6 +76,7 @@ var translators = {
         }
     },
     AssignmentExpression: (node, depth) => {
+        if (node.operator == "=" && node.right.type == "FunctionExpression") return `${pythonify(node.left, depth)}=${pythonify(node.right, depth, false, true)}`;
         return `${pythonify(node.left, depth)}${node.operator}${pythonify(node.right, depth)}`;
     },
     WhileStatement: (node, depth) => {
@@ -131,7 +133,12 @@ var translators = {
                 throw new Error("Not supported method kind.");
         }
     },
-    FunctionExpression: (node, depth, includeSelf = false) => {
+    FunctionExpression: (node, depth, includeSelf = false, anonymous = false) => {
+        if (anonymous) {
+            var id = generateRandomIdentifier();
+            defineGlobalFunction(id, node.params, node.body);
+            return id;
+        }
         if (node.body.type == "BlockStatement") {
             return `(${includeSelf ? "self, " : ""}${node.params.map(p => pythonify(p, 0)).join(",")}):${pythonify(node.body, depth)}`;
         } else {
