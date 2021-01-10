@@ -40,7 +40,7 @@ Note: This only translates syntax features, not all native functions will be ava
 ## Currently custom defined JavaScript native functions
 - *Math.pow()*
 ## Currently translated JavaScript native classes and their methods
-- *Array*
+- *Array* - Note: The Array construcotr does not work the same way as JavaScript. As a parameter it takes a python list in order for it to work. If constructing arrays, please use the *[]* symbols. If extending the Array class, just do not parse anything to the super constructor.
   - *length*
   - *toString()*
   - *push()*
