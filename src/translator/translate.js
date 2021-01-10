@@ -156,6 +156,12 @@ var translators = {
     ArrayExpression: (node, depth) => {
         addGlobalImport("import math", fs.readFileSync("./python/array.py", "utf-8"))
         return `Array(${node.elements.map(v => pythonify(v, 0)).join(",")})`;
+    },
+    ArrayPattern: (node, depth) => {
+        return `[${node.elements.map(v => pythonify(v, depth)).join(",")}]`
+    },
+    SpreadElement: (node, depth) => {
+        return `*${pythonify(node.argument, depth)}`;
     }
 }
 

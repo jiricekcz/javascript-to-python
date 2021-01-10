@@ -58,8 +58,10 @@ class Array(list):
         self.__update()
         return self
     def splice(self, start, deleteCount):
+        h = self[start:start + deleteCount]
         del self[start:start + deleteCount]
         self.__update()
+        return h
     def unshift(self, *elements):
         for element in elements:
             self.insert(0, element)

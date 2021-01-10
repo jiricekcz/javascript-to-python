@@ -62,8 +62,10 @@ class Array(list):
         self.__update()
         return self
     def splice(self, start, deleteCount):
+        h = self[start:start + deleteCount]
         del self[start:start + deleteCount]
         self.__update()
+        return h
     def unshift(self, *elements):
         for element in elements:
             self.insert(0, element)
@@ -118,7 +120,6 @@ class Array(list):
     
 
 
-def xgpvmevoopryvuxlctrplszzvjdjgmjk(a,b): return a-b
-a=Array(1,2,5,4,8,7,9,6,21,8,4,6,4)
-a[0]
-print(a.sort(xgpvmevoopryvuxlctrplszzvjdjgmjk))
+a=Array(1,2,5,4,5,52,6)
+print(a.splice(0,4))
+print(a)
