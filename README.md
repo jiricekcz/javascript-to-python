@@ -39,5 +39,17 @@ Note: This only translates syntax features, not all native functions will be ava
 - *Math.log()* to *math.log()* with the import of *math*
 ## Currently custom defined JavaScript native functions
 - *Math.pow()*
+## Currently translated JavaScript native classes and their methods
+- *Array*
+  - *length*
+  - *toString()*
+  - *push()*
+  - *pop()*
+  - *concat()*
+  - *join()*
+  - *reverse()*
+  - *shift()*
+  - *slice()*
+  - *sort()* - uses the quicksort algorithm
 ## Usage example 
 **node ./src/translator/ ./myFile.js ./myFile.py**
