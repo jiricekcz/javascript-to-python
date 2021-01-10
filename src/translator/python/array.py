@@ -1,5 +1,5 @@
 class Array(list):
-    def __init__(self, l): 
+    def __init__(self, *l): 
         super().__init__(l)
         self.__update()
     def __update(self):

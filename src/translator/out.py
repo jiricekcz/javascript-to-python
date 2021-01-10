@@ -3,7 +3,7 @@
 # Convertor author: https://github.com/jiricekcz
 import math
 class Array(list):
-    def __init__(self, l): 
+    def __init__(self, *l): 
         super().__init__(l)
         self.__update()
     def __update(self):
@@ -118,7 +118,7 @@ class Array(list):
     
 
 
-def fxfiiqopdlspnkceggmorgmkurpqgehi(a,b): return a-b
-a=Array((1,2,5,4,8,7,9,6,21,8,4,6,4))
+def xgpvmevoopryvuxlctrplszzvjdjgmjk(a,b): return a-b
+a=Array(1,2,5,4,8,7,9,6,21,8,4,6,4)
 a[0]
-print(a.sort(fxfiiqopdlspnkceggmorgmkurpqgehi))
+print(a.sort(xgpvmevoopryvuxlctrplszzvjdjgmjk))
