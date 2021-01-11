@@ -113,5 +113,3 @@ class Array(list):
             if (self.__callElementCallback(callback, self[i], i, self)): h.append(self[i])
             i+=1
         return self(h)
-    
-

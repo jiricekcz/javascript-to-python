@@ -37,6 +37,7 @@ Note: This only translates syntax features, not all native functions will be ava
 - ThrowStatement
 - TryStatement
 - CatchClause
+- ForOfStatement
 ## Currently translated native JavaScript functions and constants
 - *Number()*
 - *String()*

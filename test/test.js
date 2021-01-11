@@ -1,13 +1,4 @@
-var n = Number(input());
-var k = Number(input());
-output = "";
-for (var i = 1; i <= n; i++) {
-    output += String(i) + ": 1"
-    var s = 1;
-    for (var j = 1; j <= k; j++) {
-        s *= i;
-        output += " " + String(s);
-    }
-    if (i != n) output += "\n";
+var a = [1, 2, 5, 4, 8, 7, 56, 2, 5, 6, 45, 6, 5];
+for (var f of a) {
+    console.log(f);
 }
-console.log(output);

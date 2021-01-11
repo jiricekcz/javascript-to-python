@@ -29,6 +29,7 @@ var translators = {
         return node.declarations.map(d => pythonify(d, depth)).join(getDepthSpacing(depth));
     },
     VariableDeclarator: (node, depth = 0) => {
+        if (!node.init) return pythonify(node.id, depth);
         if (node.init.type == "FunctionExpression") return `${pythonify(node.id, depth)}=${pythonify(node.init, depth, false, true)}`;
         return `${pythonify(node.id, depth)}=${pythonify(node.init, depth)}`;
     },
@@ -197,6 +198,9 @@ var translators = {
     },
     CatchClause: (node, depth) => {
         return `except Exception as ${pythonify(node.param)}: ${pythonify(node.body, depth)}`
+    },
+    ForOfStatement: (node, depth) => {
+        return `for ${pythonify(node.left, depth)} in ${pythonify(node.right, depth)}:${pythonify(node.body, depth)}`;
     }
 }
 
