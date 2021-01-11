@@ -100,7 +100,11 @@ var translators = {
         return `return ${pythonify(node.argument)}`;
     },
     CallExpression: (node, depth) => {
-        return `${pythonify(node.callee, depth)}(${node.arguments.map(v => pythonify(v, depth)).join(",")})`;
+        callee = pythonify(node.callee, depth);
+        if (callee == "require") {
+            return requireStatement(node.arguments.map(v => pythonify(v, depth)).join(","));
+        }
+        return `${callee}(${node.arguments.map(v => pythonify(v, depth)).join(",")})`;
     },
     MemberExpression: (node, depth) => {
         if (!Number.isNaN(Number(pythonify(node.property, depth)))) {
@@ -247,4 +251,11 @@ function generateRandomChar() {
     var id = Math.round(12 + Math.random() * 24).toString(36);
     usedIdentifiers.push(id);
     return id;
+}
+/**
+ * 
+ * @param {string} id 
+ */
+function requireStatement(id) {
+
 }

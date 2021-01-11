@@ -31,6 +31,9 @@ module.exports.functionRenames.set("Math.random", ["random.random", ["import ran
 module.exports.functionRenames.set("Math.sin", ["math.sin", ["import math"]]);
 module.exports.functionRenames.set("Math.sqrt", ["sqrt", ["sqrt = lambda x: x**(1/2)"]]);
 module.exports.functionRenames.set("Math.tan", ["math.tan", ["import math"]]);
+module.exports.functionRenames.set("Number", "float");
+module.exports.functionRenames.set("String", "str");
+
 
 module.exports.identifierRenames = new Map();
 module.exports.identifierRenames.set("this", "self");
