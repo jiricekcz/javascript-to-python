@@ -1,2 +1,3 @@
-var a = true;
-var b = !!!a;
+const fs = require('fs');
+
+console.log(fs.readFileSync("./index.js"));

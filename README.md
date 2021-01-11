@@ -93,5 +93,8 @@ Note: You can use native python functions within the JavaScript file. This can b
   - *some()*
   - *forEach()*
   - *reduce()*
+## Currently translated Node.js modules with the functions supported
+  - *fs*
+    - *readFileSync()*
 ## Usage example 
 **node . ./myFile.js ./myFile.py**

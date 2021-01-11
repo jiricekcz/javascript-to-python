@@ -41,3 +41,5 @@ module.exports.identifierRenames.set("this", "self");
 
 module.exports.operatorRenames = new Map();
 module.exports.operatorRenames.set("!", "not ");
+
+module.exports.supportedRequireModules = ["fs"];
