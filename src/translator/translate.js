@@ -201,6 +201,11 @@ var translators = {
     },
     ForOfStatement: (node, depth) => {
         return `for ${pythonify(node.left, depth)} in ${pythonify(node.right, depth)}:${pythonify(node.body, depth)}`;
+    },
+    UnaryExpression: (node, depth) => {
+        var o = node.operator;
+        if (dictionary.operatorRenames.has(o)) o = dictionary.operatorRenames.get(o);
+        return `${o}${pythonify(node.argument, depth)}`;
     }
 }
 

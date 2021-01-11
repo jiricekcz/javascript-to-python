@@ -33,7 +33,11 @@ module.exports.functionRenames.set("Math.sqrt", ["sqrt", ["sqrt = lambda x: x**(
 module.exports.functionRenames.set("Math.tan", ["math.tan", ["import math"]]);
 module.exports.functionRenames.set("Number", "float");
 module.exports.functionRenames.set("String", "str");
-
+module.exports.functionRenames.set("true", "True");
+module.exports.functionRenames.set("false", "False");
 
 module.exports.identifierRenames = new Map();
 module.exports.identifierRenames.set("this", "self");
+
+module.exports.operatorRenames = new Map();
+module.exports.operatorRenames.set("!", "not ");
