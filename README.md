@@ -38,8 +38,8 @@ Note: This only translates syntax features, not all native functions will be ava
 - TryStatement
 - CatchClause
 ## Currently translated native JavaScript functions and constants
-- *new Number()*
-- *new String()*
+- *Number()*
+- *String()*
 - *console.log()*
 - *Math.round()*
 - *Math.ceil()*
