@@ -2,6 +2,10 @@
 My attempt to create a translator from simple Javascript to python
 
 Note: This only translates syntax features, not all native functions will be available.
+
+Note: Python does not nativly support async functions and all functions that would be async in JavaScript run synchronously in python, thus all async/await modifiers will be ignored while translating to python. 
+
+Note: You can use native python functions within the JavaScript file. This can be usefull for functions like *input()*, whose function is, due to the nature of JavaScript, somewhat complicated to replicate in JavaScript.
 ## Currently supported JavaScript syntax features
 - VariableDeclaration
 - VariableDeclarator
