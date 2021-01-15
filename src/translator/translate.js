@@ -40,11 +40,11 @@ var translators = {
         return node.name;
     },
     Literal: (node) => {
-        if (dictionary.functionRenames.has(node.raw)) node.raw = dictionary.functionRenames.get(node.raw);
-        return node.raw;
+        if (dictionary.functionRenames.has(node.raw)) node.raw = `(${dictionary.functionRenames.get(node.raw)})`;
+        return "(" + node.raw + ")";
     },
     BinaryExpression: (node, depth) => {
-        return `${pythonify(node.left, depth)}${node.operator}${pythonify(node.right, depth)}`;
+        return `(${pythonify(node.left, depth)}${node.operator}${pythonify(node.right, depth)})`;
     },
     IfStatement: (node, depth = 0, elseIfStatement = false) => {
         var s = `${elseIfStatement ? "\nelif" : "if"} ${pythonify(node.test, depth)}:${pythonify(node.consequent, depth)}`;
@@ -267,7 +267,7 @@ function generateRandomChar() {
  * @param {string} id 
  */
 function requireStatement(id) {
-    if (id.startsWith("\"") && id.endsWith("\"") || id.startsWith("'") && id.endsWith("'")|| id.startsWith("`") && id.endsWith("`")) {
+    if (id.startsWith("\"") && id.endsWith("\"") || id.startsWith("'") && id.endsWith("'") || id.startsWith("`") && id.endsWith("`")) {
         id = id.split('');
         id.pop();
         id.shift();
