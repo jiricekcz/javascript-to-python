@@ -84,7 +84,7 @@ class Array(list):
             if (self.__callElementCallback(condition, self[i], i, self)): return True
             i+=1
         return False
-    def __callElementCallback(self, callback, element, index, array, arg, arg2, arg3):
+    def __callElementCallback(self, callback, element, index, array):
         argCount = callback.__code__.co_argcount - len(callback.__defaults__)
         if (argCount == 0):
             return callback()
@@ -94,12 +94,6 @@ class Array(list):
             return callback(element, index)
         if (argCount == 3):
             return callback(element, index, array)
-        if (argCount == 4):
-            return callback(element, index, array, arg)
-        if (argCount == 5):
-            return callback(element, index, array, arg, arg2)
-        if (argCount == 6):
-            return callback(element, index, array, arg, arg2, arg3)
         
     def forEach(self, callback):
         i = 0
@@ -111,5 +105,12 @@ class Array(list):
         i = 0
         while i < len(self) - 1:
             if (self.__callElementCallback(callback, self[i], i, self)): h.append(self[i])
+            i+=1
+        return self(h)
+    def map(self, callback):
+        h = []
+        i = 0
+        while i < len(self):
+            h.append(self.__callElementCallback(callback, self[i], i, self))
             i+=1
         return self(h)
