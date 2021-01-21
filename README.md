@@ -43,6 +43,7 @@ Note: You can use native python functions within the JavaScript file. This can b
 - CatchClause
 - ForOfStatement
 - UnaryExpression
+- LogicalExpression
 ## Currently translated native JavaScript functions and constants
 - *Number()*
 - *String()*

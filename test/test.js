@@ -1,53 +1,16 @@
-const zpStandard = 0.045;
-const zpH = 0.135;
-const zpF = 0.09;
-const sp = 0.065;
-const nd = 0.15;
-const vd = 0.23;
-const slnp = 2320;
-const slns = 335;
-const mzdaMin = 15200;
-const mzdaAvg = 35411;
-
-var hruba = Number(input());
-var primary = Number(input()) == 1;
-var student = Number(input()) == 1;
-
-
-// Tax
-var d = 0;
-
-if (hruba > 4 * mzdaAvg) {
-    d = 4 * mzdaAvg * nd;
-    d += (hruba - 4 * mzdaAvg) * vd;
-} else {
-    d = hruba * nd;
-}
-if (primary) {
-    d -= slnp;
-}
-if (student) {
-    d -= slns;
-}
-d = Math.max(d, 0);
-
-
-// Healh 
-var h = 0;
-if (student) {
-    h = hruba * zpStandard;
-} else {
-    if (hruba < mzdaMin) {
-        h = (mzdaMin * zpH) - (hruba * zpF);
-    } else {
-        h = hruba * zpStandard;
+var t = [];
+function errr(arr) {
+    for (var j of arr) {
+        if (![0,1,2,3,4,5].includes(j)) return true;
     }
+    return false;
 }
-
-// Social Health
-var s = hruba * sp;
-
-console.log(hruba - h - d - s);
-console.log(d);
-console.log(h);
-console.log(s);
+while (true) {
+    var d = Number(input());
+    if (d == -1) break;
+    t.push(d);
+}
+if (t.includes(0)) console.log("neklasifikovan"); else
+if (errr(t)) console.log("error"); else {
+    console.log(String(Math.round(t.reduce((a, b) => a + b) / t.length * 1e2) / 1e2) + "0");
+}

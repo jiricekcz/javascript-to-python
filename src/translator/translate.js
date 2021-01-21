@@ -207,6 +207,11 @@ var translators = {
         var o = node.operator;
         if (dictionary.operatorRenames.has(o)) o = dictionary.operatorRenames.get(o);
         return `${o}${pythonify(node.argument, depth)}`;
+    },
+    LogicalExpression: (node, depth) => {
+        var o = node.operator;
+        if (dictionary.operatorRenames.has(o)) o = dictionary.operatorRenames.get(o);
+        return `${pythonify(node.left, depth)} ${o} ${pythonify(node.right, depth)}`;
     }
 }
 
