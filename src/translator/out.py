@@ -192,4 +192,4 @@ class Array(list):
         return a
 h=Number(5.5555)
 r=Number(6)
-print((String("hhhhhh")+h))
+raise Exception(String("H"))

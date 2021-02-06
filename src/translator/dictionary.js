@@ -35,6 +35,7 @@ module.exports.functionRenames.set("Number", "float");
 module.exports.functionRenames.set("String", "str");
 module.exports.functionRenames.set("true", "True");
 module.exports.functionRenames.set("false", "False");
+module.exports.functionRenames.set("Error", "Exception");
 
 module.exports.identifierRenames = new Map();
 module.exports.identifierRenames.set("this", "self");
