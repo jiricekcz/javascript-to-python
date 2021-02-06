@@ -2,6 +2,68 @@
 # Github: https://github.com/jiricekcz/javascript-to-python
 # Convertor author: https://github.com/jiricekcz
 import math
+class Number(float):
+    def __init__(self, n):
+        pass
+    def toString(self):
+        return String(self.valueOf())
+    def valueOf(self):
+        if int(self) == self: return int(self)
+        return float(self)
+    def toFixed(self, digits):
+        return String(round(self, digits))
+    def __add__(self, other): 
+        if isinstance(other, Number): 
+            return Number(self + other)
+        else: 
+            return other + self
+    def __str__(self):
+        return self.toString()
+class String(str): 
+    def __init__(self, value):
+        pass
+    def __add__(self, other):
+        return String(str(self) + str(other))
+    def charAt(self, pos):
+        return self[pos]
+    def charCodeAt(self, pos):
+        return ord(self[pos])
+    def concat(self, *others):
+        r = self()
+        for h in others:
+            r += h
+        return r
+    def indexOf(self, sub, start = 0):
+        l = len(self)
+        ls = len(sub)
+        while start < l - ls:
+            if (self[start:start + ls] == sub): return start
+            start += 1
+        return Number(-1)
+    def lastIndexOf(self, sub, start = "h"):
+        l = len(self)
+        ls = len(sub)
+        if (start == "h"): start = ls - l
+        while start > 0:
+            if (self[start:start + ls] == sub): return start
+            start -= 1
+        return Number(-1)
+    def replace(self, old, new):
+        return self.replace(old, new, 1)
+    def slice(self, start, end):
+        return self[start:end]
+    def split(self, sep):
+        return Array(self.split(sep))
+    def substring(self, start, end): 
+        return self.slice(start, end)
+    def toLowerCase(self):
+        return self.lower()
+    def toUpperCase(self):
+        return self.upper()
+    def trim(self):
+        return self.strip()
+    def valueOf(self):
+        return str(self)
 class Array(list):
     def __init__(self, *l): 
         super().__init__(l)
@@ -128,7 +190,6 @@ class Array(list):
         for x in self:
             a = callback(a, x)
         return a
-a=Array((1),(2),(3),(4),(5),(6),(7),(8),(9),(10))
-i=(4)
-print(a[(1)])
-print(a[i])
+h=Number(5.5555)
+r=Number(6)
+print((String("hhhhhh")+h))

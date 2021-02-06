@@ -41,6 +41,14 @@ var translators = {
     },
     Literal: (node) => {
         if (dictionary.functionRenames.has(node.raw)) node.raw = `(${dictionary.functionRenames.get(node.raw)})`;
+        if (typeof node.value == "number") {
+            addGlobalImport("import math", fs.readFileSync("./python/number.py", "utf-8"), fs.readFileSync("./python/string.py", "utf-8"), fs.readFileSync("./python/array.py", "utf-8"));
+            return `Number(${node.raw})`;
+        }
+        if (typeof node.value == "string") {
+            addGlobalImport(fs.readFileSync("./python/number.py", "utf-8"), fs.readFileSync("./python/string.py", "utf-8"), fs.readFileSync("./python/array.py", "utf-8"));
+            return `String(${node.raw})`;
+        }
         return "(" + node.raw + ")";
     },
     BinaryExpression: (node, depth) => {

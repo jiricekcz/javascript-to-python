@@ -76,7 +76,7 @@ Note: You can use native python functions within the JavaScript file. This can b
 - *Math.sin()*
 - *Math.sqrt()*
 - *Math.tan()*
-## Currently translated JavaScript native classes and their methods
+## Currently translated JavaScript native classes and their methods and operators
 - *Array*
   - *length*
   - *toString()*
@@ -96,6 +96,24 @@ Note: You can use native python functions within the JavaScript file. This can b
   - *some()*
   - *forEach()*
   - *reduce()*
+- *Number*
+  - *toString()* - NOTE: The base conversion not yet supported
+  - *valueOf()* - returns either python float or python int 
+  - *toFixed()*
+- *String*
+  - *charAt()*
+  - *charCodeAt()* - NOTE: Returns the ASCII code, not unicode
+  - *concat()*
+  - *indexOf()*
+  - *lastindexOf()*
+  - *replace()*
+  - *slice()*
+  - *split()*
+  - *substring()*
+  - *toLowerCase()*
+  - *toUpperCase()*
+  - *trim()*
+  - *valueOf()* - returns the python string
 ## Currently translated Node.js modules with the functions supported
   - *fs*
     - *readFileSync()*
