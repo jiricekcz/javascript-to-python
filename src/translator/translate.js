@@ -27,7 +27,7 @@ function pythonify(node, depth = 0, ...moreParams) {
 
 var translators = {
     VariableDeclaration: (node, depth = 0) => {
-        return node.declarations.map(d => pythonify(d, depth)).join(getDepthSpacing(depth));
+        return node.declarations.map(d => pythonify(d, depth)).join("\n" + getDepthSpacing(depth));
     },
     VariableDeclarator: (node, depth = 0) => {
         if (!node.init) return pythonify(node.id, depth);
@@ -212,6 +212,14 @@ var translators = {
         var o = node.operator;
         if (dictionary.operatorRenames.has(o)) o = dictionary.operatorRenames.get(o);
         return `${pythonify(node.left, depth)} ${o} ${pythonify(node.right, depth)}`;
+    },
+    TemplateLiteral: (node, depth) => {
+        return `f"${pythonify(node.quasis[0])}${node.expressions.map((v, i) => {
+            return `{${pythonify(v, depth)}}${pythonify(node.quasis[i + 1], depth)}`;           
+        }).join("")}"`;
+    },
+    TemplateElement: (node, depth) => {
+        return node.value.cooked;
     }
 }
 
