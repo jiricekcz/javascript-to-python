@@ -1,2 +1,4 @@
-var a = 5, b = 8, c = 10;
-console.log(`a: ${a}, b: ${b}, c: ${c}, d:${a + b}`);
+const a = [1,2,3,4,5,6,7,8,9,10];
+const i = 4;
+console.log(a[1]);
+console.log(a[i])

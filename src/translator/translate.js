@@ -109,7 +109,7 @@ var translators = {
         return `${callee}(${node.arguments.map(v => pythonify(v, depth)).join(",")})`;
     },
     MemberExpression: (node, depth) => {
-        if (!Number.isNaN(Number(pythonify(node.property, depth)))) {
+        if (node.computed) {
             var member = `${pythonify(node.object, depth)}[${pythonify(node.property, depth)}]`
         } else {
             var member = `${pythonify(node.object, depth)}.${pythonify(node.property, depth)}`
