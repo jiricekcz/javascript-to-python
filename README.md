@@ -114,6 +114,7 @@ Note: You can use native python functions within the JavaScript file. This can b
   - *toUpperCase()*
   - *trim()*
   - *valueOf()* - returns the python string
+  - *startsWith()*
 - *Error*
 ## Currently translated Node.js modules with the functions supported
   - *fs*

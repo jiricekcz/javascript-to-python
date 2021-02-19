@@ -28,18 +28,22 @@ class String(str):
             start -= 1
         return Number(-1)
     def replace(self, old, new):
-        return self.replace(old, new, 1)
+        return String(self.replace(old, new, 1))
     def slice(self, start, end):
-        return self[start:end]
+        return String(self[start:end])
     def split(self, sep):
-        return Array(self.split(sep))
+        if sep == "": return Array(*list(str(self)))
+        return Array(str(self).split(sep))
     def substring(self, start, end): 
-        return self.slice(start, end)
+        return String(self.slice(start, end))
     def toLowerCase(self):
-        return self.lower()
+        return String(self.lower())
     def toUpperCase(self):
-        return self.upper()
+        return String(self.upper())
     def trim(self):
-        return self.strip()
+        return String(self.strip())
     def valueOf(self):
         return str(self)
+    def startsWith(self, symbol):
+        l = len(symbol)
+        return self.slice(0,l) == symbol

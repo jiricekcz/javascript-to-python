@@ -10,8 +10,10 @@ class Number(float):
         return String(round(self, digits))
     def __add__(self, other): 
         if isinstance(other, Number): 
-            return Number(self + other)
+            return Number(self.valueOf() + other.valueOf())
         else: 
-            return other + self
+            return Number(other + self.valueOf())
     def __str__(self):
         return self.toString()
+    def __index__(self):
+        return int(self)

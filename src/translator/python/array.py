@@ -28,7 +28,7 @@ class Array(list):
         self.__update()
         return x
     def slice(self, start, stop):
-        return self[start:stop]
+        return Array(*self[start:stop])
     def __swap(self, index1, index2):
         t = self[index1]
         self[index1] = self[index2]
@@ -58,8 +58,8 @@ class Array(list):
         self.__update()
         return self
     def splice(self, start, deleteCount):
-        h = self[start:start + deleteCount]
-        del self[start:start + deleteCount]
+        h = self[start:Number(start + deleteCount)]
+        del self[start:Number(start + deleteCount)]
         self.__update()
         return h
     def unshift(self, *elements):

@@ -31,8 +31,6 @@ module.exports.functionRenames.set("Math.random", ["random.random", ["import ran
 module.exports.functionRenames.set("Math.sin", ["math.sin", ["import math"]]);
 module.exports.functionRenames.set("Math.sqrt", ["sqrt", ["sqrt = lambda x: x**(1/2)"]]);
 module.exports.functionRenames.set("Math.tan", ["math.tan", ["import math"]]);
-module.exports.functionRenames.set("Number", "float");
-module.exports.functionRenames.set("String", "str");
 module.exports.functionRenames.set("true", "True");
 module.exports.functionRenames.set("false", "False");
 module.exports.functionRenames.set("Error", "Exception");
