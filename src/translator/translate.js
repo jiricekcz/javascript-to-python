@@ -49,11 +49,11 @@ var translators = {
     Literal: (node) => {
         if (dictionary.functionRenames.has(node.raw)) node.raw = `(${dictionary.functionRenames.get(node.raw)})`;
         if (typeof node.value == "number") {
-            addGlobalImport("import math", fs.readFileSync(path.resolve("./src/translator/python/number.py"), "utf-8"), fs.readFileSync(path.resolve("./src/translator/python/string.py"), "utf-8"), fs.readFileSync(path.resolve("./src/translator/python/array.py"), "utf-8"));
+            addGlobalImport("import math", fs.readFileSync(path.join(__dirname, "./python/number.py"), "utf-8"), fs.readFileSync(path.join(__dirname, "./python/string.py"), "utf-8"), fs.readFileSync(path.join(__dirname, "./python/array.py"), "utf-8"));
             return `Number(${node.raw})`;
         }
         if (typeof node.value == "string") {
-            addGlobalImport(fs.readFileSync(path.resolve("./src/translator/python/number.py"), "utf-8"), fs.readFileSync(path.resolve("./src/translator/python/string.py"), "utf-8"), fs.readFileSync(path.resolve("./src/translator/python/array.py"), "utf-8"));
+            addGlobalImport(fs.readFileSync(path.join(__dirname, "./python/number.py"), "utf-8"), fs.readFileSync(path.join(__dirname, "./python/string.py"), "utf-8"), fs.readFileSync(path.join(__dirname, "./python/array.py"), "utf-8"));
             return `String(${node.raw})`;
         }
         return "(" + node.raw + ")";
@@ -185,7 +185,7 @@ var translators = {
         return id;
     },
     ArrayExpression: (node, depth) => {
-        addGlobalImport("import math", fs.readFileSync(path.resolve("./src/translator/python/array.py"), "utf-8"))
+        addGlobalImport("import math", fs.readFileSync(path.join(__dirname, "./python/array.py"), "utf-8"))
         return `Array(${node.elements.map(v => pythonify(v, 0)).join(",")})`;
     },
     ArrayPattern: (node, depth) => {

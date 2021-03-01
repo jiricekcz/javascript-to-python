@@ -1,0 +1,1 @@
+node H:\GGTeam\Projects\javascript-to-python\ "../../test/test2.js"

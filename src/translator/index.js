@@ -8,11 +8,13 @@ async function main() {
     let inputFile, outputFile;
     // Input handle
     try {
-        inputFile = path.resolve(process.argv[2]);
+        if (process.argv[2] == path.resolve(process.argv[2])) inputFile = process.argv[2]; else
+        inputFile = path.join(__dirname, process.argv[2]);
     } catch (err) {
         throw new Error("Unable to load the input file, please make sure the file name is correct.");
     }
-    outputFile = path.resolve(process.argv[3] || "out.py");
+    if (process.argv[3] == "auto") process.argv[3] = undefined;
+    outputFile = path.resolve(process.argv[3] || inputFile.replace(".js2py", ".py").replace(".js", ".py"));
     const cdnLinkToSource = process.argv.includes("--saveSource");
 
     var file = fs.readFileSync(inputFile, 'utf8').toString();
