@@ -1,4 +1,6 @@
 const fs = require('fs');
+const path = require('path');
+
 
 module.exports.functionRenames = new Map();
 module.exports.functionRenames.set("console.log", "print");
@@ -25,8 +27,8 @@ module.exports.functionRenames.set("Math.asin", ["math.asin", ["import math"]]);
 module.exports.functionRenames.set("Math.atan", ["math.atan", ["import math"]]);
 module.exports.functionRenames.set("Math.atan2", ["math.atan2", ["import math"]]);
 module.exports.functionRenames.set("Math.cos", ["math.cos", ["import math"]]);
-module.exports.functionRenames.set("Math.max", ["maxJS", [fs.readFileSync("./python/maxJS.py")]]);
-module.exports.functionRenames.set("Math.min", ["minJS", [fs.readFileSync("./python/minJS.py")]]);
+module.exports.functionRenames.set("Math.max", ["maxJS", [fs.readFileSync(path.resolve("./src/translator/python/maxJS.py"))]]);
+module.exports.functionRenames.set("Math.min", ["minJS", [fs.readFileSync(path.resolve("./src/translator/python/minJS.py"))]]);
 module.exports.functionRenames.set("Math.random", ["random.random", ["import random"]]);
 module.exports.functionRenames.set("Math.sin", ["math.sin", ["import math"]]);
 module.exports.functionRenames.set("Math.sqrt", ["sqrt", ["sqrt = lambda x: x**(1/2)"]]);

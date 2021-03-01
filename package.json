@@ -2,9 +2,10 @@
   "name": "javascript-to-python",
   "version": "1.0.0",
   "description": "A simple javascript to python translator",
-  "main": "index.js",
+  "main": "./src/translator/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "node . ./test/test.js ./test/out.py --saveSource"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/jiricekcz/javascript-to-python#readme",
   "dependencies": {
-    "acorn": "^8.0.4"
+    "acorn": "^8.0.4",
+    "discord.js": "^12.5.1"
   }
 }
