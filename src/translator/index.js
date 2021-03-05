@@ -15,7 +15,7 @@ async function main() {
     }
     if (process.argv[3] == "auto") process.argv[3] = undefined;
     outputFile = path.resolve(process.argv[3] || inputFile.replace(".js2py", ".py").replace(".js", ".py"));
-    const cdnLinkToSource = process.argv.includes("--saveSource");
+    const cdnLinkToSource = !process.argv.includes("--dontSaveSource");
 
     var file = fs.readFileSync(inputFile, 'utf8').toString();
     var output = "";
