@@ -9,7 +9,7 @@ async function main() {
     // Input handle
     try {
         if (process.argv[2] == path.resolve(process.argv[2])) inputFile = process.argv[2]; else
-        inputFile = path.join(__dirname, process.argv[2]);
+        inputFile = path.join(process.cwd(), process.argv[2]);
     } catch (err) {
         throw new Error("Unable to load the input file, please make sure the file name is correct.");
     }

@@ -4,8 +4,8 @@ const path = require('path');
 
 module.exports.functionRenames = new Map();
 module.exports.functionRenames.set("console.log", "print");
-module.exports.functionRenames.set("Math.ceil", ["ceil", ["import math"]]);
-module.exports.functionRenames.set("Math.floor", ["floor", ["import math"]]);
+module.exports.functionRenames.set("Math.ceil", ["math.ceil", ["import math"]]);
+module.exports.functionRenames.set("Math.floor", ["math.floor", ["import math"]]);
 module.exports.functionRenames.set("Math.round", ["round", ["import math"]]);
 module.exports.functionRenames.set("Math.E", ["math.exp(1)", ["import math"]]);
 module.exports.functionRenames.set("Math.exp", ["math.exp", ["import math"]]);

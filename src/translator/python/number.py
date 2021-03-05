@@ -13,6 +13,21 @@ class Number(float):
             return Number(self.valueOf() + other.valueOf())
         else: 
             return Number(other + self.valueOf())
+    def __mul__(self, other):
+        if isinstance(other, Number): 
+            return Number(self.valueOf() * other.valueOf())
+        else: 
+            return Number(other * self.valueOf()) 
+    def __sub__(self, other):
+        if isinstance(other, Number): 
+            return Number(self.valueOf() - other.valueOf())
+        else: 
+            return Number(other - self.valueOf()) 
+    def __div__(self, other):
+        if isinstance(other, Number): 
+            return Number(self.valueOf() / other.valueOf())
+        else: 
+            return Number(other / self.valueOf()) 
     def __str__(self):
         return self.toString()
     def __index__(self):
