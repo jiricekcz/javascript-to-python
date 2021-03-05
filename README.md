@@ -100,6 +100,10 @@ Note: You can use native python functions within the JavaScript file. This can b
   - *toString()* - NOTE: The base conversion not yet supported
   - *valueOf()* - returns either python float or python int 
   - *toFixed()*
+  - *+*
+  - *\**
+  - *-*
+  - */*
 - *String*
   - *charAt()*
   - *charCodeAt()* - NOTE: Returns the ASCII code, not unicode
